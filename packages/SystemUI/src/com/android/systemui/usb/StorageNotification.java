@@ -219,7 +219,7 @@ public class StorageNotification extends SystemUI {
                                 .setCategory(Notification.CATEGORY_SYSTEM)
                                 .setDeleteIntent(buildSnoozeIntent(fsUuid))
                                 .extend(new Notification.TvExtender());
-                SystemUI.overrideNotificationAppName(mContext, builder, false);
+                SystemUI.overrideNotificationAppName(mContext, builder);
 
                 mNotificationManager.notifyAsUser(fsUuid, SystemMessage.NOTE_STORAGE_PRIVATE,
                         builder.build(), UserHandle.ALL);
@@ -247,7 +247,7 @@ public class StorageNotification extends SystemUI {
                             .setLocalOnly(true)
                             .setCategory(Notification.CATEGORY_ERROR)
                             .extend(new Notification.TvExtender());
-            SystemUI.overrideNotificationAppName(mContext, builder, false);
+            SystemUI.overrideNotificationAppName(mContext, builder);
 
             mNotificationManager.notifyAsUser(disk.getId(), SystemMessage.NOTE_STORAGE_DISK,
                     builder.build(), UserHandle.ALL);
@@ -507,7 +507,7 @@ public class StorageNotification extends SystemUI {
                         .setCategory(Notification.CATEGORY_PROGRESS)
                         .setProgress(100, status, false)
                         .setOngoing(true);
-        SystemUI.overrideNotificationAppName(mContext, builder, false);
+        SystemUI.overrideNotificationAppName(mContext, builder);
 
         mNotificationManager.notifyAsUser(move.packageName, SystemMessage.NOTE_STORAGE_MOVE,
                 builder.build(), UserHandle.ALL);
@@ -557,7 +557,7 @@ public class StorageNotification extends SystemUI {
                         .setLocalOnly(true)
                         .setCategory(Notification.CATEGORY_SYSTEM)
                         .setAutoCancel(true);
-        SystemUI.overrideNotificationAppName(mContext, builder, false);
+        SystemUI.overrideNotificationAppName(mContext, builder);
 
         mNotificationManager.notifyAsUser(move.packageName, SystemMessage.NOTE_STORAGE_MOVE,
                 builder.build(), UserHandle.ALL);
@@ -591,7 +591,7 @@ public class StorageNotification extends SystemUI {
                         .setVisibility(Notification.VISIBILITY_PUBLIC)
                         .setLocalOnly(true)
                         .extend(new Notification.TvExtender());
-        overrideNotificationAppName(mContext, builder, false);
+        overrideNotificationAppName(mContext, builder);
         return builder;
     }
 
